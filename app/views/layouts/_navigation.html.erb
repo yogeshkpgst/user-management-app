@@ -8,8 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <% if user_signed_in? %>
       <%= link_to 'Home', root_path, class: 'navbar-brand' %>
     </div>
+    <% else %>
+    <% end %>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <%= render 'layouts/navigation_links' %>
