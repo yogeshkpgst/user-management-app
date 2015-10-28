@@ -1,11 +1,43 @@
-<h3>Welcome</h3>
-
 <% if user_signed_in? %>
-<h3>Hi, <%= current_user.name %></h3>
-<p><%= User.count %> users registered</p>
+<h3>Welcome back, <%= current_user.name %></h3><p><%= User.count %> users registered</p>
  
 <% else %>
 <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
 <% end %>
+
+<h3> <b> Recent NEWS of Energy Management </b> </h3>
+<p>
+
+<div>
+
+<h4> <b> Duke Acquires Majority Stake in PhoenixET
+
+October 27, 2015 By Karen Henry	</b> </h4>
+
+
+<%= image_tag("Duke-Energy.jpg", :alt => "rss feed") %>
+
+<p> Duke-Energy-logoDuke Energy has acquired a majority share of Irvine, California-based Phoenix Energy Technologies (PhoenixET), a provider of energy management systems and services for commercial customers.
+</p>
+
+<p> According to Duke, the acquisition will help the company expand its offerings to its commercial customers.
+</p>
+
+<p> PhoenixET’s software is capable of integrating an customer’s portfolio of buildings without deploying additional hardware.
+</p>
+
+<p> Once PhoenixET completes the building integration process, the company uses its proprietary software to analyze data, such as occupancy, weather, equipment problems, heating, ventilation and air conditioning.
+</p>
+
+<p> After the transaction, PhoenixET will continue to operate independently with its established management team.
+</p>
+
+<p> The terms of the deal were not disclosed.
+</p>
+
+<p> Earlier this year, Duke purchased a majority interest in REC Solar in San Luis Obispo.
+</p>
+
+</div>
 
 

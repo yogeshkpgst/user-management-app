@@ -11,14 +11,9 @@
    </div>
  </div>
 
+<%= image_tag("water-01.jpg", :size => "600x600", :alt => "rss feed") %>
 
-<div class="row">
-   <div class="col-sm-6">
-     <div id="chart-2" style=" width: 100px height: 100px;"></div>
-       <%= bar_chart({"You" => 74.10, "Efficient Neighbor" => 87.90, "All Neighbor" => 60.20}) %>
-     </div>
-   </div>
- </div>
+
 
  <% else %>
   <%= content_tag(flash[:error] = "Login to access this page") %>

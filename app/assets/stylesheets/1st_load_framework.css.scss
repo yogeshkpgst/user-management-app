@@ -81,3 +81,12 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+
+/* label */
+label.required:after{
+content: " *";
+color: red;
+cursor: help;
+}
+
