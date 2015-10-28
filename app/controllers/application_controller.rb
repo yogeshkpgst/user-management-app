@@ -12,4 +12,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:role, :name, :email, :password, :password_confirmation, :last_name, :prefix, :suffix, :title, :street1, :street2, :city, :state, :country, :zip, :phone, :fax) }
   end
 
+
+  def after_sign_in_path_for(resource)
+  # Put some path, like:
+	energy_myenergy_path
+  end
+
+
 end

@@ -1,10 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  #before_filter :configure_permitted_parameters
-
-  #def configure_permitted_parameters
-    #devise_parameter_sanitizer.for(:account_update).push(:tw_account, :fb_account)
-  #end
 
   def new
     @user= User.new
