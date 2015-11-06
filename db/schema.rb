@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020094002) do
+ActiveRecord::Schema.define(version: 20151104101902) do
+
+  create_table "energies", force: :cascade do |t|
+    t.date     "year"
+    t.float    "value",      limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -40,6 +47,11 @@ ActiveRecord::Schema.define(version: 20151020094002) do
     t.integer  "zip",                    limit: 8,     default: 0,  null: false
     t.integer  "phone",                  limit: 8,     default: 0,  null: false
     t.integer  "fax",                    limit: 8,     default: 0,  null: false
+    t.string   "nick_name",              limit: 255,   default: "", null: false
+    t.string   "group",                  limit: 255,   default: "", null: false
+    t.integer  "rate_code",              limit: 8
+    t.string   "ac_type",                limit: 255,   default: "", null: false
+    t.integer  "ac_no",                  limit: 8
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

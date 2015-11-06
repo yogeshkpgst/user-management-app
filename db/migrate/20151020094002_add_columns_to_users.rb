@@ -12,5 +12,10 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :zip, :bigint, default: 0, null: false
     add_column :users, :phone, :bigint, default: 0, null: false
     add_column :users, :fax, :bigint, default: 0, null: false
+    add_column :users, :nick_name, :string, null: false, default: ""
+    add_column :users, :group, :string, null: false, default: ""
+    add_column :users, :rate_code, :bigint
+    add_column :users, :ac_type, :string, null: false, default: ""
+    add_column :users, :ac_no, :bigint
   end
 end

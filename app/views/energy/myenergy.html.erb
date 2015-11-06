@@ -1,23 +1,37 @@
 <html>
+<div class="container">
 <body>
   <% if user_signed_in? %>
     <h3>Hi, <%= current_user.name %></h3>
       <div class="row">
         <div class="col-sm-6">
-            <h3>Energy Report</h3>
-                <div id="pie-1" style=" width: 100px height: 100px;"></div>
-                <%= pie_chart({"2013" => 34.80, "2014" => 87.90, "2015" => 62.97}) %>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <h3>Energy Score</h3>
-                <div id="bar-1" style=" width: 100px height: 100px;"></div>
-                <%= bar_chart({"You" => 24.10, "Efficient Neighbor" => 7.90, "All Neighbor" => 10.20}) %>
-            </div>
-          </div>
+          <h3>Energy Report</h3>
+            <div id="pie-1" style=" width: 100px height: 100px;"></div>
+            <%= pie_chart Energy.group(:year).count %>
         </div>
+        <div class="col-sm-6">
+          <h3>Energy Monitor</h3>
+            <div id="area-1" style=" width: 100px height: 100px;"></div>
+            <%= area_chart Energy.group(:year).count  %>
+        </div>    
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <h3>Energy Usage</h3>
+            <div id="column-1" style=" width: 100px height: 100px;"></div>
+            <%= column_chart Energy.group(:year).count, {library: {hAxis: {title: "Year"}, vAxis: {title: "Usage"}}} %>
+        </div>    
+      <div class="col-sm-6">
+        <h3>Energy Gained</h3>
+          <div id="line-1" style=" width: 100px height: 100px;"></div>
+          <%= line_chart Energy.group(:year).count, {library: {hAxis: {title: "Year"}, vAxis: {title: "Usage"}}} %>
+        </div>
+      </div>
+
   <% else %>
     <%= content_tag(flash[:error] = "Login to access this page") %>
   <% end %>
 </body>
+</div>
 </html>

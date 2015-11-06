@@ -14,14 +14,9 @@ gem 'mysql2', '~> 0.3.18'
 gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
-
-
-group :assets do
-  gem 'sass-rails', '~> 5.0'
-  gem 'uglifier', '>= 1.3.0'
-  gem 'coffee-rails', '~> 4.1.0'
-  gem 'foundation-rails'
-end
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 
 group :development do
@@ -45,6 +40,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
   gem "chartkick"
+  gem 'groupdate'
 end
 
 

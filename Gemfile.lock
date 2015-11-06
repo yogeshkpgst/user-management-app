@@ -116,6 +116,8 @@ GEM
       sass (>= 3.3.0, < 3.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    groupdate (2.5.0)
+      activesupport (>= 3)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -327,6 +329,7 @@ DEPENDENCIES
   faker
   foreman
   foundation-rails
+  groupdate
   guard-bundler
   guard-rails
   guard-rspec

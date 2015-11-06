@@ -3,11 +3,17 @@
   <div style = "height:850px">
     <h3>Personal Information</h3> 
     <%= devise_error_messages! %>
+
+    <div>
+      <%= f.label :ac_no %>
+      <%= f.text_field :ac_no, :autofocus => true, class: 'form-control' %>
+    </div>
+
     <div class="row" style="display:inline" >
 
     <div class="form-group col-xs-6">
       <%= f.label :prefix %>
-      <%= f.select :prefix, options_for_select(%w[Mr. Mrs. Ms. Dr. Prof. Er.]) , {:class => 'date-select'} %>
+      <%= f.select :prefix, options_for_select(%w[Dr. Prof. Er. Mr. Mrs. Ms.]) , {:class => 'date-select'} %>
     </div>
 
     <div class="form-group col-xs-6">
@@ -85,6 +91,26 @@
       <%= f.text_field :fax, :autofocus => true, class: 'form-control' %>
     </div>
 
+    <div class="form-group col-xs-6">
+      <%= f.label :nickname %>
+      <%= f.text_field :nick_name, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-xs-6">
+      <%= f.label :group %>
+      <%= f.text_field :group, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-xs-6">
+      <%= f.label :rate_code %>
+      <%= f.text_field :rate_code, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-xs-6">
+      <%= f.label :ac_type %>
+      <%= f.text_field :ac_type, :autofocus => true, class: 'form-control' %>
+    </div>
+    
      <%= f.submit 'Sign up', :class => 'button right' %>
   <% end %>
 </div>
