@@ -1,0 +1,13 @@
+<html>
+<div class="container">
+<body>
+<%= form_tag energy_utility_path, :method => 'get'  do %>
+   <%= text_field_tag :search, params[:search], :placeholder => "Utility Search" %>   
+   <%= link_to 'Add Account', utility_accounts_new_path, class: "btn btn-primary" %>
+   <%= submit_tag "Search", class: "btn btn-primary", :utility_no => nil  %>
+ <% end %>
+ </body>
+ </div>
+ </html>
+
+ 

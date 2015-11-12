@@ -1,0 +1,31 @@
+<div class="authform" >
+
+<%= form_for :utility_account do |f| %>
+
+    <div class="row" style="display:inline" >
+
+    <div class="form-group col-xs-6">
+      <%= f.label :account_no , class:'required' %>
+      <%= f.text_field :account_no, :autofocus => true, class: 'form-control' %>
+   </div>
+
+    <div class="form-group col-xs-6">
+      <%= f.label :utility_name , class:'required' %>
+      <%= f.text_field :utility_name, :autofocus => true, class: 'form-control' %>
+   </div>
+
+    <div class="form-group col-xs-6">
+      <%= f.label :address %>
+      <%= f.text_field :address, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-xs-6">
+      <%= f.label :zip_code %>
+      <%= f.text_field :zip_code, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    
+     <%= f.submit 'Create', :class => 'btn btn-primary' %>
+  <% end %>
+</div>
+</div>

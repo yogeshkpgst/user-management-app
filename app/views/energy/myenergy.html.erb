@@ -2,7 +2,16 @@
 <div class="container">
 <body>
   <% if user_signed_in? %>
-    <h3>Hi, <%= current_user.name %></h3>
+    <h4>Hi, <%= current_user.name %></h4>
+
+    <fieldset class="address-info">
+      <legend id="address-title">Utility Information</legend>
+        <ul class="media-list address-list"> </ul>
+          <div class="text-center">
+            <%= link_to 'Add Utility', energy_utility_path, class: "btn btn-primary" %>
+          </div>
+    </fieldset>
+
       <div class="row">
         <div class="col-sm-6">
           <h3>Energy Report</h3>

@@ -3,12 +3,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USER MANAGEMENT</title>
+    <title>CONSERVE NOW UTILITY</title>
     
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true  %>
+    <%= stylesheet_link_tag 'application', media: 'all'  %>
   
-    <%#= stylesheet_link_tag '1st_load_framework.css.scss', media: 'all' %>
+    <%#= stylesheet_link_tag 'custom.css.scss', media: 'all' %>
     <%#= stylesheet_link_tag '_bootstrap.scss', media: 'all' %>
     <%#= stylesheet_link_tag '_bootstrap-compass.scss', media: 'all' %>
     <%#= stylesheet_link_tag '_bootstrap-mincer.scss', media: 'all' %>
@@ -26,19 +25,17 @@
   <body>
 
  <div id="header">
-    <%= render 'layouts/header' %>
-    </div>
-    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/header' %>    
     <%= render 'layouts/messages' %>
+    <%= render 'layouts/navigation' %>    
       <div class="container">
       <% flash.each do |key, value| %>
         <br /><br />
       <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
       <%= yield %>
-          <div id="footer">
-
-      </div></div>
+          <div id="footer"></div>
+    </div>
 </body>
 </html>
 

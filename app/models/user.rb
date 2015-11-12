@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+  has_and_belongs_to_many :utility_accounts
+  accepts_nested_attributes_for :utility_accounts, :allow_destroy => true
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 

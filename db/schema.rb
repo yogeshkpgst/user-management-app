@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104101902) do
+ActiveRecord::Schema.define(version: 20151112103441) do
 
   create_table "energies", force: :cascade do |t|
     t.date     "year"
@@ -56,5 +56,27 @@ ActiveRecord::Schema.define(version: 20151104101902) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_utility_accounts", id: false, force: :cascade do |t|
+    t.integer "user_id",            limit: 4, null: false
+    t.integer "utility_account_id", limit: 4, null: false
+  end
+
+  create_table "utility_accounts", force: :cascade do |t|
+    t.integer  "account_no",   limit: 4
+    t.string   "utility_name", limit: 255
+    t.text     "address",      limit: 65535
+    t.integer  "zip_code",     limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "utility_infos", force: :cascade do |t|
+    t.integer  "utility_no",      limit: 8
+    t.string   "utility_name",    limit: 255
+    t.string   "utility_company", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
 end
