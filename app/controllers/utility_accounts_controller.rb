@@ -24,14 +24,21 @@ class UtilityAccountsController < ApplicationController
     end
   end
 
-
-  def index   
+  def utility
     @utility_account = UtilityAccount.all
     if params[:search]
-      @utility_account = UtilityAccount.search(params[:search]).order("created_at DESC")
+      @utility_account = UtilityAccount.search(params[:search])
     else
-      @utility_account = UtilityAccount.all.order('created_at DESC')
+      @utility_account = UtilityAccount.all
     end
+  end
+
+  def show
+    @utility_account = UtilityAccount.find(params[:id])
+  end
+
+  def index   
+    @utility_account = UtilityAccount.all    
   end
 
   def utilityaccount_params

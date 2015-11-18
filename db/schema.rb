@@ -62,6 +62,9 @@ ActiveRecord::Schema.define(version: 20151112103441) do
     t.integer "utility_account_id", limit: 4, null: false
   end
 
+  add_index "users_utility_accounts", ["user_id", "utility_account_id"], name: "index_users_utility_accounts_on_user_id_and_utility_account_id", using: :btree
+  add_index "users_utility_accounts", ["utility_account_id", "user_id"], name: "index_users_utility_accounts_on_utility_account_id_and_user_id", using: :btree
+
   create_table "utility_accounts", force: :cascade do |t|
     t.integer  "account_no",   limit: 4
     t.string   "utility_name", limit: 255

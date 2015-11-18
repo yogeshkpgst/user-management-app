@@ -1,2 +1,26 @@
-<h1>UtilityAccounts#index</h1>
-<p>Find me in app/views/utility_accounts/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+	<h1>UtilityAccount</h1>	
+</head>
+<body>
+	<table cellpadding = "5" cellspacing ="5">
+  <tr>
+    <th>Account No</th>
+    <th>Utility Name</th>
+    <th>Address</th>    
+    <th>Zip Code</th>    
+    </tr>
+  <% @utility_account.each do |ua| %>
+    <tr>
+      <td><%= ua.account_no %></td>
+      <td><%= ua.utility_name %></td>
+      <td><%= ua.address %></td>
+      <td><%= ua.zip_code %></td> 
+      </tr>
+  <% end %>
+</table>
+</body>
+</html>
+
+
