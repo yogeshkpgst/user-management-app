@@ -1,14 +1,14 @@
 
- <%= form_for :utility_accounts do |f| %>
 
-  <p>
-    <%= f.label :account_no %><br>
-    <%= f.text_field :search, :tabindex => "1", :placeholder => "account no Search" %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+
+<%= form_tag utility_accounts_path, :method => "get", id: "search-form" do %>
+<%= text_field_tag :search, params[:search], :tabindex => "1", placeholder: "Search Account-No" %>
+<%= submit_tag "Search", class: "btn btn-primary", :tabindex => "2", :account_no => nil %>
+
+<% if @utility_accounts.present? %>
+<% else %>
+  <p>There are no utility account containing the term(s) <%= params[:search] %>.</p>
 <% end %>
 
-
+<% end %>
  

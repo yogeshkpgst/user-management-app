@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get 'energy/myenergy'
 
-  post 'utility_accounts/utility'
+  get 'utility_accounts/utility'
+
+  get 'utility_accounts/show'
 
   root to: 'visitors#index'
   devise_for :users

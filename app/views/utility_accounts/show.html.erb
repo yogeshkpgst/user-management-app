@@ -1,0 +1,19 @@
+<table cellpadding = "5" cellspacing ="5">
+  <tr>        
+    <th>Account No</th>
+    <th>Utility Name</th>
+    <th>Address</th>    
+    <th>Zip Code</th>   
+    <th>Add Utility</th> 
+  </tr>
+      <tr>      
+      <td><%= @utility_account.account_no %></td>
+      <td><%= @utility_account.utility_name %></td>      
+      <td><%= @utility_account.address %></td>
+      <td><%= @utility_account.zip_code  %></td> 
+      <td><%=  utility_accounts_new_path, class: "btn btn-primary" %></td>
+
+    </tr>  
+</table>
+<br/>
+

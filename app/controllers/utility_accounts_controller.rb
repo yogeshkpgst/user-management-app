@@ -1,18 +1,18 @@
 class UtilityAccountsController < ApplicationController
 
   def new
-    @utility_account= UtilityAccount.new
+    @utility_account = UtilityAccount.new
   end
 
   def create	
-	@utility_account = UtilityAccount.new(utilityaccount_params)
-	if @utility_account.save
-	  flash :success =>  "Welcome"
-	  redirect_to utility_accounts_index_path
-	else
-	  flash :alert => "Unable to create"
-	  render :action => "new"
-	end
+	  @utility_account = UtilityAccount.new(utilityaccount_params)
+	  if @utility_account.save
+	    flash :success =>  "Welcome"
+	    redirect_to utility_accounts_index_path
+	  else
+	    flash :alert => "Unable to create"
+	    render :action => "new"
+	  end
   end
 
   def update
@@ -24,13 +24,8 @@ class UtilityAccountsController < ApplicationController
     end
   end
 
-  def utility
-    @utility_account = UtilityAccount.all
-    if params[:search]
-      @utility_account = UtilityAccount.search(params[:search])
-    else
-      @utility_account = UtilityAccount.all
-    end
+  def utility   
+    @utility_accounts = UtilityAccount.all
   end
 
   def show
@@ -38,7 +33,7 @@ class UtilityAccountsController < ApplicationController
   end
 
   def index   
-    @utility_account = UtilityAccount.all    
+    @utility_account = UtilityAccount.search(params[:search])
   end
 
   def utilityaccount_params
