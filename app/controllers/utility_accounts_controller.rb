@@ -5,19 +5,19 @@ class UtilityAccountsController < ApplicationController
   end
 
   def create	
-	  @utility_account = UtilityAccount.new(utilityaccount_params)
+	  @utility_account = UtilityAccount.create(utility_account_params)
 	  if @utility_account.save
+      byebug
 	    flash :success =>  "Welcome"
-	    redirect_to utility_accounts_index_path
+	    redirect_to @utility_account_path
 	  else
-	    flash :alert => "Unable to create"
-	    render :action => "new"
+	    redirect_to utility_accounts_new, :alert => "Unable to create"
 	  end
   end
 
   def update
     @utility_account = UtilityAccount.find(params[:id])
-    if @utility_account.update_attributes(utilityaccount_params)
+    if @utility_account.update_attributes(utility_account_params)
       redirect_to utility_accounts_index_path, :notice => "Utility Account updated."
     else
       redirect_to utility_accounts_index_path, :alert => "Unable to update Utility Account."
@@ -32,11 +32,14 @@ class UtilityAccountsController < ApplicationController
     @utility_account = UtilityAccount.find(params[:id])
   end
 
-  def index   
-    @utility_account = UtilityAccount.search(params[:search])
+  def index
+    @utility_account = UtilityAccount.search(params[:search])    
   end
 
-  def utilityaccount_params
-    params.require(:utilityaccount).permit(:account_no, :utility_name, :address, :zip_code)
+private
+
+  def utility_account_params
+    params.require(:utility_account).permit(:account_no, :utility_name, :address, :zip_code)
   end
+
 end

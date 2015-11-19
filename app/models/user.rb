@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  belongs_to :utility_account
+  has_many :utility_accounts
   
   accepts_nested_attributes_for :utility_account, :allow_destroy => true
 

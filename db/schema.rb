@@ -11,13 +11,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112103441) do
+ActiveRecord::Schema.define(version: 20151118122856) do
+
+  create_table "daily_usages", force: :cascade do |t|
+    t.integer  "utility_no",   limit: 4
+    t.date     "date"
+    t.float    "total_usage",  limit: 24
+    t.float    "total_charge", limit: 24
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "energies", force: :cascade do |t|
     t.date     "year"
     t.float    "value",      limit: 24
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "monthly_usages", force: :cascade do |t|
+    t.integer  "utility_no",   limit: 4
+    t.date     "date"
+    t.float    "total_usage",  limit: 24
+    t.float    "total_charge", limit: 24
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "property_infos", force: :cascade do |t|
+    t.integer  "zip_id",                  limit: 4
+    t.string   "home_type",               limit: 255
+    t.integer  "bed_rooms",               limit: 4
+    t.integer  "bath_rooms",              limit: 4
+    t.float    "finished_square_footage", limit: 24
+    t.float    "lot_size_square_footage", limit: 24
+    t.date     "year_build"
+    t.date     "year_updated"
+    t.integer  "number_of_floors",        limit: 4
+    t.string   "basement",                limit: 255
+    t.string   "roof_type",               limit: 255
+    t.string   "view",                    limit: 255
+    t.string   "parking_type",            limit: 255
+    t.string   "heating_sources",         limit: 255
+    t.string   "heating_system",          limit: 255
+    t.string   "appliances",              limit: 255
+    t.string   "floor_covering",          limit: 255
+    t.string   "rooms",                   limit: 255
+    t.string   "images",                  limit: 255
+    t.string   "street_address",          limit: 255
+    t.integer  "zipcode",                 limit: 4
+    t.string   "city",                    limit: 255
+    t.string   "state",                   limit: 255
+    t.string   "latitude",                limit: 255
+    t.string   "longitude",               limit: 255
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "raw_usages", force: :cascade do |t|
+    t.integer  "utility_no",   limit: 4
+    t.date     "date"
+    t.float    "total_usage",  limit: 24
+    t.float    "total_charge", limit: 24
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,6 +137,15 @@ ActiveRecord::Schema.define(version: 20151112103441) do
     t.string   "utility_company", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "yearly_usages", force: :cascade do |t|
+    t.integer  "utility_no",   limit: 4
+    t.date     "date"
+    t.float    "total_usage",  limit: 24
+    t.float    "total_charge", limit: 24
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end
