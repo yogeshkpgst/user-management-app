@@ -123,12 +123,17 @@ ActiveRecord::Schema.define(version: 20151118122856) do
   add_index "users_utility_accounts", ["utility_account_id", "user_id"], name: "index_users_utility_accounts_on_utility_account_id_and_user_id", using: :btree
 
   create_table "utility_accounts", force: :cascade do |t|
-    t.integer  "account_no",   limit: 4
-    t.string   "utility_name", limit: 255
-    t.text     "address",      limit: 65535
-    t.integer  "zip_code",     limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "account_no",      limit: 4
+    t.string   "utility_name",    limit: 255
+    t.string   "utility_company", limit: 255
+    t.string   "street1",         limit: 255
+    t.string   "street2",         limit: 255
+    t.string   "city",            limit: 255
+    t.string   "state",           limit: 255
+    t.string   "country",         limit: 255
+    t.integer  "zip_code",        limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "utility_infos", force: :cascade do |t|

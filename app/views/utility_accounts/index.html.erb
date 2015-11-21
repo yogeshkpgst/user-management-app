@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<h3>Utility Account</h3><%= link_to "Add Utility", utility_accounts_new_path, class: "btn btn-primary" %> </div> </br>
+	<h3>Utility Account</h3>
 </head>
 <body>
 	<table class = "table table-bordered" cellpadding = "5" cellspacing ="5">
-  <tr>
+  <tr>    
     <th>Account No</th>
     <th>Utility Name</th>
-    <th>Address</th>    
-    <th>Zip Code</th>    
+    <th>Utility Company</th>
+    <th>Street 1</th>
+    <th>Street 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>  
+    <th>Zip Code</th>
     </tr>
   <% @utility_account.each do |ua| %>
-    <tr>
+    <tr>      
       <td><%= ua.account_no %></td>
       <td><%= ua.utility_name %></td>
-      <td><%= ua.address %></td>
-      <td><%= ua.zip_code %></td> 
+      <td><%= ua.utility_company %></td>
+      <td><%= ua.street1 %></td>
+      <td><%= ua.street2 %></td>
+      <td><%= ua.city %></td>
+      <td><%= ua.state %></td>
+      <td><%= ua.country %></td>
+      <td><%= ua.zip_code %></td>
+      <% end %>          
+      
       </tr>
-  <% end %>
+
 </table>
+      
+      <%= form_for(utility_accounts_add_utility_path) do |f| %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :account_no, :value => @utility_account[0][:account_no] %>
+      <%= f.submit 'Add Utility', :class => 'button-xs', :action => "add_utility" %>
+      <% end %>
+      
 </body>
 </html>
 

@@ -1,45 +1,22 @@
 class UtilityAccountsController < ApplicationController
 
-  def new
-    @utility_account = UtilityAccount.new
-  end
-
-  def create	
-	  @utility_account = UtilityAccount.create(utility_account_params)
-	  if @utility_account.save
-      byebug
-	    flash :success =>  "Welcome"
-	    redirect_to @utility_account_path
-	  else
-	    redirect_to utility_accounts_new, :alert => "Unable to create"
-	  end
-  end
-
-  def update
-    @utility_account = UtilityAccount.find(params[:id])
-    if @utility_account.update_attributes(utility_account_params)
-      redirect_to utility_accounts_index_path, :notice => "Utility Account updated."
-    else
-      redirect_to utility_accounts_index_path, :alert => "Unable to update Utility Account."
-    end
-  end
-
-  def utility   
-    @utility_accounts = UtilityAccount.all
-  end
-
-  def show
-    @utility_account = UtilityAccount.find(params[:id])
-  end
+  before_action :authenticate_user!
 
   def index
-    @utility_account = UtilityAccount.search(params[:search])    
+    @utility_account = UtilityAccount.search(params[:search])
+
+   # @utility_account = UtilityAccount.insert(params[:account_no],[:user_id])
+    #@user = User.find(params[:id])
+  	#@user_utility_account = UserUtilityAccount.new(user_utility_account_params)
+  	#@utility_account.user_id = @user.id
+  	#@utility_account.save
+  		#flash[:success] = "UtilityAccount Added!"
+  		#redirect_to @utility_account
   end
-
-private
-
-  def utility_account_params
-    params.require(:utility_account).permit(:account_no, :utility_name, :address, :zip_code)
+  def add_utility
+  	@utility_account = UtilityAccount.insert(params[:account_no],[:user_id])
   end
-
 end
+
+
+
