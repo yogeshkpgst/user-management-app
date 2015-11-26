@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create	
 	  @user = User.new(sign_up_params)
 	  if @user.save
-		  flash :success => "Welcome"
+		  flash :success => = "Welcome"
 		  redirect_to users_path
 	  else
 		  render :action => "new"

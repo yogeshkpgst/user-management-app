@@ -1,19 +1,16 @@
-<table cellpadding = "5" cellspacing ="5">
-  <tr>        
-    <th>Account No</th>
-    <th>Utility Name</th>
-    <th>Address</th>    
-    <th>Zip Code</th>   
-    <th>Add Utility</th> 
-  </tr>
-      <tr>      
-      <td><%= @utility_account.account_no %></td>
-      <td><%= @utility_account.utility_name %></td>      
-      <td><%= @utility_account.address %></td>
-      <td><%= @utility_account.zip_code  %></td> 
-      <td><%=  utility_accounts_new_path, class: "btn btn-primary" %></td>
+<div class="authform" >
 
-    </tr>  
-</table>
-<br/>
+<h1> User <%= current_user.id %> </h1>
+
+   <%= form_for :utility_account do |f| %>
+     <div>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :account_no, :value => f.account_no %>
+    </div>
+    
+   <%= f.submit 'Update', :class => 'btn btn-primary' %>
+  <% end %>
+</div>
+</div>
+
 

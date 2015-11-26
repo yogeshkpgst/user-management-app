@@ -15,7 +15,7 @@
     <th>State</th>
     <th>Country</th>  
     <th>Zip Code</th>
-  </tr>
+    </tr>
   <% @utility_account.each do |ua| %>
     <tr>      
       <td><%= ua.account_no %></td>
@@ -26,20 +26,23 @@
       <td><%= ua.city %></td>
       <td><%= ua.state %></td>
       <td><%= ua.country %></td>
-      <td><%= ua.zip_code %></td>        
-  </tr>
+      <td><%= ua.zip_code %></td>  
+      
+      </tr>
 
 </table>
-      <%= form_for UsersUtilityAccount.new do |f| %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :utility_account_id, :value => ua.account_no %>
 
-      <%= if :user_id == 'current_user.id' && :utility_account_id == 'ua.account_no'
-      	
-      end%>
-      <%= f.submit 'Add', :class => 'btn btn-primary' %>
+<%# a href=”/utility_account/new?utility_account_id=1&user_id=111” >link</a> %>
+      
+      <%= form_for(edit_utility_account_path(@utility_account)) do |f| %>
+      <%= f.text_field :user_id, :value => current_user.id %>
+      <%= f.text_field :account_no, :value => ua.account_no %>
+      <%= f.submit 'Add Utility', :class => 'button-xs', :action => "edit" %>
       <% end %>
-    <% end %>
+
+
+      <% end %>
+
 
 </body>
 </html>

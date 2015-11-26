@@ -1,0 +1,39 @@
+class UtilityAccountsController < ApplicationController
+
+  before_action :authenticate_user!
+
+  def new
+    @utility_account = UtilityAccount.new
+  end
+
+  def create
+    @utility_account = UtilityAccount.create(utility_params)
+    if @utility_account.save
+      flash :success => "Account added"
+      redirect_to utility_accounts_path
+    else
+      render :action => "new"
+    end
+  end
+
+  def index
+    @utility_account = UtilityAccount.search(params[:search])
+    #Rails.logger.debug("My search  object: #{@utility_account.inspect}")
+    @utility_account = UtilityAccount.insert(params[:utility_account_id],[:user_id])
+  end
+  def edit
+  	@utility_account = UtilityAccount.insert(params[:utility_account_id],[:user_id])
+    Rails.logger.debug("My search  object: #{@utility_account.inspect}")
+    @user = @utility_account.user_id
+    @utility_account = UserUtilityAccount.save
+  end
+
+  private
+    def utility_params
+      params.require(:utility_account).permit(:street1)
+    end
+
+end
+
+
+

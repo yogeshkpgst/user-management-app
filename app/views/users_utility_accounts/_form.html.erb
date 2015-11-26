@@ -1,0 +1,5 @@
+      <%= form_for([@utility_account, @utility_account.user_utility_accounts.build]) do |f| %>
+      <%= f.text_field :user_id, :value => current_user.id %>
+      <%= f.text_field :account_no, :value => ua.account_no %>
+      <%= f.submit 'Add Utility' %>
+      <% end %>

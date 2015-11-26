@@ -1,31 +1,14 @@
 <div class="authform" >
 
-<%= form_for :utility_account do |f| %>
+<h1> User <%= @current_user.id %> </h1>
 
-    <div class="row" style="display:inline" >
-
-    <div class="form-group col-xs-6">
-      <%= f.label :account_no , class:'required' %>
-      <%= f.text_field :account_no, :autofocus => true, class: 'form-control' %>
-   </div>
-
-    <div class="form-group col-xs-6">
-      <%= f.label :utility_name , class:'required' %>
-      <%= f.text_field :utility_name, :autofocus => true, class: 'form-control' %>
-   </div>
-
-    <div class="form-group col-xs-6">
-      <%= f.label :address %>
-      <%= f.text_field :address, :autofocus => true, class: 'form-control' %>
+   <%= form_for :utility_account do |f| %>
+     <div>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :account_no, :value => f.account_no %>
     </div>
-
-    <div class="form-group col-xs-6">
-      <%= f.label :zip_code %>
-      <%= f.text_field :zip_code, :autofocus => true, class: 'form-control' %>
-    </div>
-
     
-     <%= f.submit 'Update', :class => 'btn btn-primary' %>
+   <%= f.submit 'Update', :class => 'btn btn-primary' %>
   <% end %>
 </div>
 </div>
