@@ -1,6 +1,6 @@
 class UtilityAccount < ActiveRecord::Base
 
-  has_many :user_utility_accounts, :dependent => :destroy
+  has_many :user_utility_accounts
   has_many :users, through: :user_utility_accounts
  
   def self.search(search)

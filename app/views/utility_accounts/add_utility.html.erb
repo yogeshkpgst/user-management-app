@@ -1,5 +1,0 @@
-      <%= form_for(current_user.users_utility_accounts.build(account_no: @user.id), remote: true) do |f| %>
-      <%= f.hidden_field :user_id %>
-      <%= f.submit 'Add Utility', :class => 'button-xs', :action => "add_utility" %>
-      <% end %>
-      

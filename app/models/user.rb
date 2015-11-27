@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :user_utility_accounts, :dependent => :destroy
+  has_many :user_utility_accounts
   has_many :utility_accounts, through: :user_utility_accounts
     
   

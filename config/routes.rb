@@ -6,20 +6,15 @@ Rails.application.routes.draw do
 
   get 'users_utility_accounts/index'
 
-  post 'utility_accounts/index'
-
-    post 'utility_accounts/add_utility'
+  post 'utility_accounts/index'  
 
   post 'utility_accounts/new'
 
   get 'energy/myenergy'
 
-  get 'utility_accounts/utility'
-
   get 'utility_accounts/show'
 
   get 'utility_accounts/edit'
-
 
   post 'samples/insert'
 

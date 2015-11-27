@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <div>
 	<h3>Utility Account</h3>
+	<%= form_tag utility_accounts_path, :method => "get", id: "search-form" do %>
+	<%= text_field_tag :search, params[:search], :tabindex => "1", placeholder: "Search Account-No" %>
+	<%= submit_tag "Search", class: "btn btn-primary", :tabindex => "2", :account_no => nil %>
+	<% end %> </div><br>
 </head>
 <body>
-	<table class = "table table-bordered" cellpadding = "5" cellspacing ="5">
+
+<%#= @utility_account %>
+
+<table class = "table table-bordered" cellpadding = "5" cellspacing ="5">
   <tr>    
     <th>Account No</th>
     <th>Utility Name</th>
@@ -18,7 +26,7 @@
   </tr>
   <% @utility_account.each do |ua| %>
     <tr>      
-      <td><%= ua.account_no %></td>
+      <td><%= ua.account_no %></td>      
       <td><%= ua.utility_name %></td>
       <td><%= ua.utility_company %></td>
       <td><%= ua.street1 %></td>
@@ -28,16 +36,13 @@
       <td><%= ua.country %></td>
       <td><%= ua.zip_code %></td>        
   </tr>
-
 </table>
+
       <%= form_for UsersUtilityAccount.new do |f| %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :utility_account_id, :value => ua.account_no %>
 
-      <%= if :user_id == 'current_user.id' && :utility_account_id == 'ua.account_no'
-      	
-      end%>
-      <%= f.submit 'Add', :class => 'btn btn-primary' %>
+      <%= f.submit 'Add', :tabindex => "3", :class => 'btn btn-primary' %>
       <% end %>
     <% end %>
 
