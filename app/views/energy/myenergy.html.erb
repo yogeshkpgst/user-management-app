@@ -5,10 +5,10 @@
     <h4>Hi, <%= current_user.name %></h4>
 
     <fieldset class="address-info">
-      <legend id="address-title">Utility Information</legend>
+      <legend id="address-title">Account Information</legend>
         <ul class="media-list address-list"> </ul>
           <div class="text-center">
-            <%= link_to 'Add Utility', utility_accounts_path, :tabindex => "1", class: "btn btn-primary" %>
+            <%= link_to 'Add Utility', utility_accounts_path, :tabindex => "1", class: "btn btn-primary pull-right" %>
           </div>
     </fieldset>
 
@@ -44,3 +44,5 @@
 </body>
 </div>
 </html>
+
+

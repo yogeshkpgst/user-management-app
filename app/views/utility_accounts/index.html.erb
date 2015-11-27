@@ -10,8 +10,7 @@
 </head>
 <body>
 
-<%#= @utility_account %>
-
+<% if !@utility_account.empty? %>
 <table class = "table table-bordered" cellpadding = "5" cellspacing ="5">
   <tr>    
     <th>Account No</th>
@@ -35,17 +34,21 @@
       <td><%= ua.state %></td>
       <td><%= ua.country %></td>
       <td><%= ua.zip_code %></td>        
-  </tr>
-</table>
+
 
       <%= form_for UsersUtilityAccount.new do |f| %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :utility_account_id, :value => ua.account_no %>
+  </tr>
+</table>
 
       <%= f.submit 'Add', :tabindex => "3", :class => 'btn btn-primary' %>
       <% end %>
-    <% end %>
-
+       
+    <% end %>    
+  <% else %>
+    <div class="alert alert-info">Account not found!</div>     
+<% end %>
 </body>
 </html>
 
